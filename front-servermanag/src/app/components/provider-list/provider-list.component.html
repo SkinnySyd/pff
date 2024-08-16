@@ -1,0 +1,71 @@
+
+<main class="customers_table">
+  <section class="table__header">
+    <h1>Provider List</h1>
+    <div class="input-group">
+      <input 
+        type="text" 
+        class="form-control" 
+        placeholder="Search Providers..." 
+        [(ngModel)]="searchTerm"
+      >
+    </div>
+  </section>
+  <section class="table__body">
+    <table>
+      <thead>
+        <tr>
+          <th>Id<span class="icon-arrow">&UpArrow;</span></th>
+          <th>Provider<span class="icon-arrow">&UpArrow;</span></th>
+          <th>Actions<span class="icon-arrow">&UpArrow;</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let provider of filteredProviders()">
+          <td>{{ provider.id }}</td>
+          <td>{{ provider.name }}</td>
+
+          <td>
+            <button (click)="deleteProvider(provider.id)" class="btn btn-danger">Delete</button>
+            <button routerLink="add" class="btn btn-primary">Add Provider</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+<script src="script.js"></script>
+
+
+<!-- <div class="container mt-4">
+  <h2>Provider List</h2>
+  <section class="table__header">
+    <h1>Provider List</h1>
+    <div class="input-group">
+      <input 
+        type="text" 
+        class="form-control" 
+        placeholder="Search Providers..." 
+        [(ngModel)]="searchTerm"
+      >
+    </div>
+  </section>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let provider of filteredProviders()">
+        <td>{{ provider.id }}</td>
+        <td>{{ provider.name }}</td>
+        <td>
+          <button (click)="deleteProvider(provider.id)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->

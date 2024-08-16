@@ -1,0 +1,27 @@
+FROM maven:3.8.5-openjdk-17 AS build
+# Set working directory
+WORKDIR /app
+# Copy pom.xml and project files
+COPY pom.xml .
+COPY src ./src
+# Build with Maven
+RUN mvn clean package -DskipTests
+# Use distroless as base image
+FROM gcr.io/distroless/java17-debian11:nonroot
+WORKDIR /app
+# Copy JAR file into image
+COPY --from=build /app/target/your-application.jar /app/your-application.jar
+#RUN ls -lh /app/target/your-application.jar
+EXPOSE 8080
+# Set the default command to run your Spring Boot application
+CMD ["/app/your-application.jar"]
+
+
+#FROM openjdk:17-jdk
+#
+#WORKDIR /app
+#
+#COPY target/your-application.jar your-application.jar
+#
+#CMD ["java", "-jar", "your-application.jar"]
+

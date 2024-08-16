@@ -1,0 +1,123 @@
+/* Overall container styling */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0 2rem;
+  }
+  
+  /* Form wrapper styling */
+  .form-wrapper {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Slightly larger shadow for elevation */
+    backdrop-filter: blur(10px);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    transform: translateY(-10px); /* Moves the card slightly up */
+  }
+  
+  /* Heading styling */
+  h2 {
+    color: #0078d4; /* Azure Blue */
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+  
+  /* Input field styling */
+  .form-control {
+    background: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #333;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    width: 100%;
+    transition: border-color 0.3s, background-color 0.3s;
+  }
+  
+  .form-control:focus {
+    border-color: #0078d4;
+    background-color: #fff;
+    outline: none;
+  }
+  
+  /* Button styling */
+  .btn-submit {
+    background: #0078d4;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1.5rem; /* Adds space between the input and button */
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .btn-submit:hover {
+    background: #005a9e;
+  }
+  
+  .btn-submit:active {
+    transform: scale(0.98);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1rem;
+    }
+  
+    .form-wrapper {
+      padding: 1.5rem;
+      transform: translateY(-5px); /* Adjust the vertical position for smaller screens */
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+  
+  /* Add these styles to add-provider.component.css */
+
+.notification-card {
+    position: fixed;
+    top: 35%;
+    right: 45%;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    z-index: 1000;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .notification-card.ng-enter {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  
+  .notification-card.ng-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .notification-card.ng-leave {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .notification-card.ng-leave-active {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  

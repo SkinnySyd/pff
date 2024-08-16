@@ -1,0 +1,15 @@
+com\ynov\Karim\Services\ServicesImpl\ServerServiceImpl.class
+com\ynov\Karim\Entities\Server.class
+com\ynov\Karim\Services\ProviderService.class
+com\ynov\Karim\Controllers\ServerController.class
+com\ynov\Karim\Exceptions\ResourceNotFoundException.class
+com\ynov\Karim\Dto\ProviderDto.class
+com\ynov\Karim\KarimApplication.class
+com\ynov\Karim\Entities\Provider.class
+com\ynov\Karim\Dto\ServerKey.class
+com\ynov\Karim\Repositories\ServerKeyRepository.class
+com\ynov\Karim\Services\ServerService.class
+com\ynov\Karim\Repositories\ServerRepository.class
+com\ynov\Karim\Controllers\ProviderController.class
+com\ynov\Karim\Dto\ServerDto.class
+com\ynov\Karim\Repositories\ProviderRepository.class

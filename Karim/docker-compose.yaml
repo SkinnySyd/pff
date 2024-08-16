@@ -1,0 +1,45 @@
+# Docker Compose file Reference (https://docs.docker.com/coDOCmpose/compose-file/)
+version: '3.7'
+
+# Define services
+services:
+  # App backend service
+  app-server:
+    # Configuration for building the docker image for the backend service
+    build:
+      context: . # Use an image built from the specified dockerfile in the `spring-boot-oauth2-social-login` directory.
+      dockerfile: dockerfile
+    ports:
+      - "8080:8080" # Forward the exposed port 8080 on the container to port 8080 on the host machine
+    restart: always
+    depends_on:
+      - db # This service depends on mysql. Start that first.
+    environment: # Pass environment variables to the service
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/testdb?useSSL=false
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD:
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    networks:
+      - backend
+  # Database Service (Mysql)
+  db:
+    image: mysql:latest
+    ports:
+      - "3306:3306"
+    restart: always
+    volumes:
+      - ./db:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: testdb
+      # MYSQL_USER: root
+      # MYSQL_PASSWORD:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+
+    networks:
+      - backend
+# Networks to be created to facilitate communication between containers
+networks:
+  backend:
+
+volumes:
+  db:

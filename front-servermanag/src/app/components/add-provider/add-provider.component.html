@@ -1,0 +1,84 @@
+<div class="container mt-5">
+  <div class="form-wrapper">
+    <h2>Add Cloud Provider</h2>
+    <form (ngSubmit)="addProvider()">
+      <div class="form-group">
+        <input 
+          type="text" 
+          [(ngModel)]="newProvider" 
+          name="providerName"
+          class="form-control" 
+          placeholder="Enter provider name" 
+          required
+        >
+      </div>
+      <button type="submit" class="btn-submit" [disabled]="!newProvider.trim()"
+      >Add Provider</button>
+    </form>
+  </div>
+</div>
+  <!-- Notification Card -->
+  <div *ngIf="showNotification" class="notification-card">
+    <p>Added Successfully</p>
+  </div>
+
+
+
+<!-- <div class="container mt-4">
+  <h2 class="mb-4">Add Cloud Provider</h2>
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <form (ngSubmit)="addProvider()">
+        <div class="form-group mb-3">
+          <label for="providerName" class="form-label">Provider Name</label>
+          <input
+            id="providerName"
+            type="text"
+            [(ngModel)]="newProvider"
+            name="providerName"
+            class="form-control"
+            placeholder="Enter provider name"
+            required
+          />
+        </div>
+        <div class="d-flex justify-content-end">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="!newProvider.trim()"
+          >
+            Add Provider
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+ Optional custom CSS -->
+<!-- <style>
+  .card {
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .form-label {
+    font-weight: bold;
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+  }
+
+  .btn-primary:disabled {
+    background-color: #c0c0c0;
+    border-color: #c0c0c0;
+  }
+</style> -->
+
